@@ -1,0 +1,13 @@
+{
+  "name": "tsgneu",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"npx tailwindcss -i ./input.css -o ./_site/style.css --content './**/*.html' --watch\" \"npx eleventy --serve\""
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@tailwindcss/cli": "^4.0.17",
+    "concurrently": "^9.1.2",
+    "tailwindcss": "^4.0.17"
+  }
+}
