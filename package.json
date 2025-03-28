@@ -2,6 +2,7 @@
   "name": "tsgneu",
   "type": "module",
   "scripts": {
+    "build": "npx tailwindcss -i ./input.css -o ./_site/style.css && npx eleventy",
     "dev": "concurrently -k \"npx tailwindcss -i ./input.css -o ./_site/style.css --content './**/*.html' --watch\" \"npx eleventy --serve\""
   },
   "devDependencies": {
