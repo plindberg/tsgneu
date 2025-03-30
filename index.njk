@@ -1,0 +1,8 @@
+---
+title: Peter Lindberg · TSGN
+layout: layout.njk
+---
+
+{% for post in collections.posts | reverse %}
+  {% include "partials/post.njk" %}
+{% endfor %}

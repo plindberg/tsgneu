@@ -1,0 +1,40 @@
+{% set type = post.data.type or type %}
+{% set url = post.url or url %}
+{% set date = post.date or page.date %}
+{% set source = post.data.source or source %}
+{% set sourceLabel = post.data.sourceLabel or sourceLabel %}
+{% set sourceType = post.data.sourceType or sourceType %}
+{% set content = post.templateContent or content %}
+
+{% if type == "quote" %}
+  <article>
+    <header class="text-sm/7 text-neutral-400 mb-4 mr-0 sm:mr-32">
+      <a href="{{ url }}">
+        {% if date %}
+          <time datetime="{{ date | formattedDate }}">{{ date | formattedDate }}</time>
+        {% else %}
+          No date
+        {% endif %}
+      </a> ·
+      {{ type }} →
+      <cite class="not-italic"><a href="{{ source }}">{{ sourceLabel }}</a></cite> ·
+      {{ sourceType }}
+    </header>
+    <blockquote class="space-y-4 text-base/7">
+      {{ content | safe }}
+    </blockquote>
+    <footer class="text-sm/7 text-neutral-400 mt-4">
+      <a href="{{ url }}">Permalink</a>
+    </footer>
+  </article>
+{% else %}
+  <article class="space-y-4 text-lg/7">
+    <header class="text-sm/7 text-neutral-400 mb-4">
+      <a href="{{ url }}">
+        <time datetime="{{ date | formattedDate }}">{{ date | formattedDate }}</time>
+      </a> ·
+      Peter Lindberg
+    </header>
+    {{ content | safe }}
+  </article>
+{% endif %}

@@ -1,0 +1,5 @@
+{
+  "permalink": "/{{ page.filePathStem | replace: 'posts/', '' }}/",
+  "layout": "post.njk",
+  "tags": "posts"
+}

@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 
-<link href="style.css" rel="stylesheet">
+<link href="/style.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>{{ title }}</title>
+<title>{{ title or 'Peter Lindberg' }} · TSGNEU</title>
 
 <meta name="description" content="The homepage of Peter Lindberg, software developer in Stockholm, Sweden.">
 <meta name="author" content="Peter Lindberg">
@@ -22,8 +22,19 @@
 
 <div class="max-w-[42rem] mx-auto px-4 sm:px-8 mt-8 mb-24">
   <header class="mb-12">
-    <p class="text-sm font-semibold">TSGNEU
+    <nav class="text-sm text-neutral-400">
+      <a href="/" class="font-semibold">TSGNEU</a> ·
+      <a href="/about">About</a>
+    </nav>
   </header>
 
-  {{ content | safe }}
+  <main>
+    {% block content %}
+      {{ content | safe }}
+    {% endblock %}
+  </main>
+
+  <footer class="text-sm text-neutral-400 mt-16">
+    TSGNEU &copy; 2025 by Peter Lindberg is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+  </footer>
 </div>
