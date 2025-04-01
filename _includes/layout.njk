@@ -6,7 +6,13 @@
 <link href="/style.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>{{ title or 'Peter Lindberg' }} · TSGNEU</title>
+<title>
+  {% if title and 'TSGNEU' in title %}
+    {{ title }}
+  {% else %}
+    {{ title or 'Peter Lindberg' }} · TSGNEU
+  {% endif %}
+</title>
 
 <meta name="description" content="The homepage of Peter Lindberg, software developer in Stockholm, Sweden.">
 <meta name="author" content="Peter Lindberg">

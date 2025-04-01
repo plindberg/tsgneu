@@ -1,8 +1,10 @@
 ---
-title: Peter Lindberg · TSGN
+title: TSGNEU · Peter Lindberg
 layout: layout.njk
 ---
 
-{% for post in collections.posts | reverse %}
-  {% include "partials/post.njk" %}
-{% endfor %}
+<div class="space-y-12">
+  {% for post in collections.posts | reverse %}
+    {% include "partials/post.njk" %}
+  {% endfor %}
+</div>
