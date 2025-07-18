@@ -1,0 +1,27 @@
+---
+permalink: /feed
+eleventyExcludeFromCollections: true
+eleventyAllowMissingExtension: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TSGNEU · Peter Lindberg</title>
+    <description>The homepage of Peter Lindberg, software developer in Stockholm, Sweden.</description>
+    <link>{{ site.url }}</link>
+    <language>en</language>
+    <copyright>TSGNEU © 2025 by Peter Lindberg is licensed under CC BY 4.0</copyright>
+    <atom:link href="{{ site.url }}/feed" rel="self" type="application/rss+xml" />
+    {% for post in collections.posts | reverse %}
+    {% if loop.index <= 10 %}
+    <item>
+      <title>{{ post.data.title or "Untitled" }}</title>
+      <link>{{ site.url }}{{ post.url }}</link>
+      <guid>{{ site.url }}{{ post.url }}</guid>
+      <pubDate>{{ post.date | rssDate }}</pubDate>
+      <description><![CDATA[{{ post.content | stripClasses }}]]></description>
+    </item>
+    {% endif %}
+    {% endfor %}
+  </channel>
+</rss>
