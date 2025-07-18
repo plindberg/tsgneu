@@ -19,7 +19,7 @@ eleventyAllowMissingExtension: true
       <link>{{ site.url }}{{ post.url }}</link>
       <guid>{{ site.url }}{{ post.url }}</guid>
       <pubDate>{{ post.date | rssDate }}</pubDate>
-      <description><![CDATA[{{ post.content | stripClasses }}]]></description>
+      <description><![CDATA[{{ post.content | stripClasses | safe }}]]></description>
     </item>
     {% endif %}
     {% endfor %}
