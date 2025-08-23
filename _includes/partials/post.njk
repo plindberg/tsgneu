@@ -6,10 +6,11 @@
 {% set sourceType = post.data.sourceType or sourceType %}
 {% set content = post.templateContent or content %}
 {% set lang = post.data.lang or lang %}
+{% set original = post.data.original or original %}
 
 {% if type == "quote" %}
   <article{% if lang %} lang="{{ lang }}"{% endif %}>
-    <header class="text-sm/7 text-neutral-400 mb-4 mr-0 sm:mr-32">
+    <header class="text-sm/7 text-neutral-400 mb-4 max-w-[26rem]">
       <a href="{{ url }}">
         {% if date %}
           <time datetime="{{ date | formattedDate }}">{{ date | formattedDate }}</time>
@@ -17,23 +18,23 @@
           No date
         {% endif %}
       </a> ·
-      {{ type }}
+      {{ type }} →
+      <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceLabel }}</a></cite> ·
+      {{ sourceType }}
     </header>
-    <figure>
-        <figcaption class="text-sm/7 mb-4">
-              <cite class="not-italic"><a href="{{ source }}">{{ sourceLabel }}</a></cite> ({{ sourceType }}):
-        </figcaption>
-        <blockquote class="space-y-4 text-base/7 max-w-[32rem]" cite="{{ source }}">
-            {{ content | safe }}
-        </blockquote>
-    </figure>
+    <blockquote class="space-y-4 text-base/7 max-w-[32rem]" cite="{{ source }}">
+        {{ content | safe }}
+    </blockquote>
   </article>
 {% else %}
   <article class="space-y-4 text-lg/7"{% if lang %} lang="{{ lang }}"{% endif %}>
-    <header class="text-sm/7 text-neutral-400 mb-4">
+    <header class="text-sm/7 text-neutral-400 mb-4 max-w-[26rem]">
       <a href="{{ url }}">
         <time datetime="{{ date | formattedDate }}">{{ date | formattedDate }}</time>
       </a>
+      {% if original %}
+        · <a href="{{ original }}" class="underline">First published on {{ original | labelFromUrl }}</a>
+      {% endif %}
     </header>
     {{ content | safe }}
   </article>

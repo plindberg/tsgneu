@@ -18,6 +18,22 @@ export default function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj, { zone: TZ }).toRFC2822();
   });
 
+  eleventyConfig.addFilter("labelFromUrl", function (url) {
+    if (!url) return "";
+    try {
+      const hostname = new URL(url).hostname;
+      if (hostname === "x.com" || hostname === "twitter.com") {
+        return "Twitter/X";
+      }
+      if (hostname === "www.facebook.com") {
+        return "Facebook";
+      }
+      return hostname.replace(/^www\./, "");
+    } catch (e) {
+      return "";
+    }
+  });
+
   eleventyConfig.addDateParsing((value) => {
     if (typeof value === "string") {
       const dt = DateTime.fromFormat(value, "yyyy-MM-dd HH:mm", { zone: TZ });
