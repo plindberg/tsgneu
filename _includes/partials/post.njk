@@ -16,13 +16,16 @@
           No date
         {% endif %}
       </a> ·
-      {{ type }} →
-      <cite class="not-italic"><a href="{{ source }}">{{ sourceLabel }}</a></cite> ·
-      {{ sourceType }}
+      {{ type }}
     </header>
-    <blockquote class="space-y-4 text-base/7">
-      {{ content | safe }}
-    </blockquote>
+    <figure>
+        <figcaption class="text-sm/7 mb-4">
+              <cite class="not-italic"><a href="{{ source }}">{{ sourceLabel }}</a></cite> ({{ sourceType }}):
+        </figcaption>
+        <blockquote class="space-y-4 text-base/7 max-w-[30rem]" cite="{{ source }}">
+            {{ content | safe }}
+        </blockquote>
+    </figure>
   </article>
 {% else %}
   <article class="space-y-4 text-lg/7">
