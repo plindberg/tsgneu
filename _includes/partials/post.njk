@@ -5,6 +5,7 @@
 {% set sourceLabel = post.data.sourceLabel or sourceLabel %}
 {% set sourceAuthor = post.data.sourceAuthor or sourceAuthor %}
 {% set sourceWork = post.data.sourceWork or sourceWork %}
+{% set sourcePublication = post.data.sourcePublication or sourcePublication %}
 {% set sourceType = post.data.sourceType or sourceType %}
 {% set content = post.templateContent or content %}
 {% set lang = post.data.lang or lang %}
@@ -25,6 +26,8 @@
         <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceLabel }}</a></cite>
       {% elif source and sourceAuthor and sourceWork %}
         {{ sourceAuthor }}, <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceWork }}</a></cite>
+      {% elif source and sourceAuthor and sourcePublication %}
+        <a href="{{ source }}" class="underline">{{ sourceAuthor }} in <cite class="not-italic">{{ sourcePublication }}</cite></a>
       {% endif %}
       • {{ sourceType | capitalize }}
       {% if original %}
