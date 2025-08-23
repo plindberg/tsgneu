@@ -27,6 +27,9 @@
         {{ sourceAuthor }}, <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceWork }}</a></cite>
       {% endif %}
       · {{ sourceType }}
+      {% if original %}
+        · <a href="{{ original }}" class="underline">First published on {{ original | labelFromUrl }}</a>
+      {% endif %}
     </header>
     {% blockquote source %}
         {{ content | safe }}
