@@ -48,6 +48,10 @@ export default function (eleventyConfig) {
     return `’<cite class="not-italic"><a href="${cite}" class="underline">${content}</a></cite>’`;
   });
 
+  eleventyConfig.addPairedShortcode("link", function (content, url) {
+    return `<a href="${url}" class="underline">${content}</a>`;
+  });
+
   eleventyConfig.addDateParsing((value) => {
     if (typeof value === "string") {
       const dt = DateTime.fromFormat(value, "yyyy-MM-dd HH:mm", { zone: TZ });
