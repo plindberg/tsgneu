@@ -12,8 +12,8 @@ eleventyAllowMissingExtension: true
     <language>en</language>
     <copyright>TSGNEU © 2025 by Peter Lindberg is licensed under CC BY 4.0</copyright>
     <atom:link href="{{ site.url }}/feed" rel="self" type="application/rss+xml" />
-    {% for post in collections.posts | reverse %}
-    {% if loop.index <= 10 %}
+    {% for post in collections.posts | reverse -%}
+    {% if loop.index <= 10 -%}
     <item>
       <title>{{ post.data.title or "Untitled" }}</title>
       <link>{{ site.url }}{{ post.url }}</link>
@@ -21,7 +21,7 @@ eleventyAllowMissingExtension: true
       <pubDate>{{ post.date | rssDate }}</pubDate>
       <description><![CDATA[{{ post.content | stripClasses | safe }}]]></description>
     </item>
-    {% endif %}
+    {% endif -%}
     {% endfor %}
   </channel>
 </rss>
