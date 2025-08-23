@@ -3,7 +3,7 @@ title: Carl Folke om resiliens
 date: 2025-08-23 11:04
 type: quote
 source: https://www.sverigesradio.se/avsnitt/carl-folke-sommarpratare-2025#868
-sourceLabel: Hållbarhetsforskare Carl Folke från P1 Sommar den 25 juli 2025
+sourceLabel: Hållbarhetsforskare Carl Folke från P1 Sommar den 25 juli 2025
 sourceType: audio
 lang: sv
 ---
