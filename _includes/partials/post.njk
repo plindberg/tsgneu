@@ -3,6 +3,8 @@
 {% set date = post.date or page.date %}
 {% set source = post.data.source or source %}
 {% set sourceLabel = post.data.sourceLabel or sourceLabel %}
+{% set sourceAuthor = post.data.sourceAuthor or sourceAuthor %}
+{% set sourceWork = post.data.sourceWork or sourceWork %}
 {% set sourceType = post.data.sourceType or sourceType %}
 {% set content = post.templateContent or content %}
 {% set lang = post.data.lang or lang %}
@@ -19,8 +21,12 @@
         {% endif %}
       </a> ·
       {{ type }} →
-      <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceLabel }}</a></cite> ·
-      {{ sourceType }}
+      {% if source and sourceLabel %}
+        <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceLabel }}</a></cite>
+      {% elif source and sourceAuthor and sourceWork %}
+        {{ sourceAuthor }}, <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceWork }}</a></cite>
+      {% endif %}
+      · {{ sourceType }}
     </header>
     {% blockquote source %}
         {{ content | safe }}
