@@ -11,7 +11,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("stripClasses", function (content) {
     if (!content) return content;
-    return content.replace(/\s*class="[^"]*"/g, '');
+    return content.replace(/\s*class="[^"]*"/g, "");
   });
 
   eleventyConfig.addFilter("rssDate", function (dateObj) {
@@ -27,6 +27,9 @@ export default function (eleventyConfig) {
       }
       if (hostname === "www.facebook.com") {
         return "Facebook";
+      }
+      if (hostname === "www.threads.com") {
+        return "Threads";
       }
       return hostname.replace(/^www\./, "");
     } catch (e) {

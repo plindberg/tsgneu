@@ -2,25 +2,25 @@
 date: 2025-06-04 18:22
 type: fragment
 title: Separation of concerns
+original: https://www.threads.com/@plindberg/post/DKfEOpnouzX
 ---
 <p>Say you’re writing a function or method. What does it do? It takes some input, returns
   some output based on some computation – or maybe changes some state. Are the inputs and
   outputs related? Do they make sense together? If not they should be separate.<sup>1</sup>
 
-<aside role="note" class="text-base/7">
-  <sup>1</sup> This was a reply on Threads. The above paragraph comes across as just being
-    about the inputs and outputs (or mutated state). Rather, it has to do with what is done
-    based on the inputs, and how it affects the outputs. Do those things make sense together
-    or apart?
+<aside role="note" class="text-base/7 max-w-[32rem]">
+  <sup>1</sup> The above paragraph comes across as just being about the inputs and outputs
+  (or mutated state). Rather, it has to do with what is done based on the inputs, and how
+  it affects the outputs. Do those things make sense together or apart?
 </aside>
 
 <p>This happens at all scales: within functions (separating by blank lines), within a group
   of functions (should they be together or apart), within a file, within a class, module,
   subsystem, and so on.
 
-<p>Separating things means making decisions about who gets to access what – call a function,
-  read or write some state – and even more subtle, who gets to know that some other part
-  even exists.
+<p>Separating things means making decisions about <em>who</em> gets to access <em>what</em>
+  – call a function, read or write some state – and even more subtle, who gets to know that
+  some other part even exists.
 
 <p>This has significant effect on the quality of software – how easy it is to understand and
   to change and how well it allows to keep complexity in check.
