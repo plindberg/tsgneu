@@ -31,6 +31,9 @@ export default function (eleventyConfig) {
       if (hostname === "www.threads.com") {
         return "Threads";
       }
+      if (hostname === "www.linkedin.com") {
+        return "LinkedIn";
+      }
       return hostname.replace(/^www\./, "");
     } catch (e) {
       return "";
