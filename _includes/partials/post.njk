@@ -19,16 +19,16 @@
         {% else %}
           No date
         {% endif %}
-      </a> ·
-      {{ type }} →
+      </a> •
+      {{ type | capitalize }} →
       {% if source and sourceLabel %}
         <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceLabel }}</a></cite>
       {% elif source and sourceAuthor and sourceWork %}
         {{ sourceAuthor }}, <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceWork }}</a></cite>
       {% endif %}
-      · {{ sourceType }}
+      • {{ sourceType | capitalize }}
       {% if original %}
-        · <a href="{{ original }}" class="underline">First published on {{ original | labelFromUrl }}</a>
+        • <a href="{{ original }}" class="underline">First published on {{ original | labelFromUrl }}</a>
       {% endif %}
     </header>
     {% blockquote source %}
@@ -42,7 +42,7 @@
         <time datetime="{{ date | formattedDate }}">{{ date | formattedDate }}</time>
       </a>
       {% if original %}
-        · <a href="{{ original }}" class="underline">First published on {{ original | labelFromUrl }}</a>
+        • <a href="{{ original }}" class="underline">First published on {{ original | labelFromUrl }}</a>
       {% endif %}
     </header>
     {{ content | safe }}
