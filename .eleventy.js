@@ -44,6 +44,10 @@ export default function (eleventyConfig) {
     return `<blockquote class="space-y-4 text-base/7 max-w-[32rem]" cite="${cite}">${content}</blockquote>`;
   });
 
+  eleventyConfig.addPairedShortcode("acite", function (content, cite) {
+    return `’<cite class="not-italic"><a href="${cite}" class="underline">${content}</a></cite>’`;
+  });
+
   eleventyConfig.addDateParsing((value) => {
     if (typeof value === "string") {
       const dt = DateTime.fromFormat(value, "yyyy-MM-dd HH:mm", { zone: TZ });
