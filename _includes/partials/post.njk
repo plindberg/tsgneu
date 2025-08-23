@@ -22,9 +22,9 @@
       <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceLabel }}</a></cite> ·
       {{ sourceType }}
     </header>
-    <blockquote class="space-y-4 text-base/7 max-w-[32rem]" cite="{{ source }}">
+        {% blockquote source %}
         {{ content | safe }}
-    </blockquote>
+    {% endblockquote %}
   </article>
 {% else %}
   <article class="space-y-4 text-lg/7"{% if lang %} lang="{{ lang }}"{% endif %}>

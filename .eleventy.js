@@ -40,6 +40,10 @@ export default function (eleventyConfig) {
     }
   });
 
+  eleventyConfig.addPairedShortcode("blockquote", function (content, cite) {
+    return `<blockquote class="space-y-4 text-base/7 max-w-[32rem]" cite="${cite}">${content}</blockquote>`;
+  });
+
   eleventyConfig.addDateParsing((value) => {
     if (typeof value === "string") {
       const dt = DateTime.fromFormat(value, "yyyy-MM-dd HH:mm", { zone: TZ });
