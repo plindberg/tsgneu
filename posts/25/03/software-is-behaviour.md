@@ -2,7 +2,7 @@
 date: 2025-03-23 18:08
 type: fragment
 title: Software is behaviour
-original: https://www.facebook.com/500953316/posts/10161167173538317/
+original: https://www.threads.com/@plindberg/post/DHjK6diNH5e
 ---
 In developing software, you have an idea of how you want it to behave. Software is behaviour. That’s in a sense what you create in a software project.
 
