@@ -5,7 +5,7 @@ type: fragment
 ---
 I grapple with how to transition from doing hands-on dev (what I’ve done so far), via using an agentic LLM as an assistant responding to very specific instructions, but still being one in charge (what I’m currently doing), to merely providing specs and tests.
 
-There’s just so much detail in making software. And I see no way around that. This means we need very detailed specs and very detailed tests.
+There’s just {% link "/25/08/coding-agents-and-complexity/" %}so much detail in making software{% endlink %}. And I see no way around that. This means we need very detailed specs and very detailed tests.
 
 With human devs, the details surface as we implement things – some of which can be resolved on our own, but many requiring discussion and collaboration to figure out and decide how things should work.
 
