@@ -40,6 +40,16 @@ export default function (eleventyConfig) {
     }
   });
 
+  eleventyConfig.addFilter("absoluteLinks", function (content, siteUrl) {
+    if (!content || !siteUrl) {
+      return content;
+    }
+    // Using a simpler, more robust replacement method to avoid escaping issues.
+    let newContent = content.replace(/href="\//g, `href="${siteUrl}/`);
+    newContent = newContent.replace(/src="\//g, `src="${siteUrl}/`);
+    return newContent;
+  });
+
   eleventyConfig.addPairedShortcode("blockquote", function (content, cite) {
     return `<blockquote class="space-y-4 text-base/7 max-w-[32rem]" cite="${cite}">${content}</blockquote>`;
   });
