@@ -74,4 +74,10 @@ export default function (eleventyConfig) {
     }
     return value;
   });
+
+  eleventyConfig.addCollection("chronological", function (collectionApi) {
+    const posts = collectionApi.getFilteredByTag("posts");
+    const dossiers = collectionApi.getFilteredByTag("dossiers");
+    return [...posts, ...dossiers].sort((a, b) => b.date - a.date);
+  });
 }

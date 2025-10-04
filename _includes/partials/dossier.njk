@@ -1,0 +1,14 @@
+{% set url = dossier.url or url %}
+{% set title = dossier.data.title or title %}
+{% set date = dossier.date or page.date %}
+{% set content = dossier.templateContent or content %}
+{% set lang = dossier.data.lang or lang %}
+
+<article class="space-y-4 text-lg/7"{% if lang %} lang="{{ lang }}"{% endif %}>
+  <header class="text-sm/7 text-neutral-400 mb-4 max-w-[26rem]">
+    <a href="{{ url }}" class="uppercase">
+      {{ title }}
+    </a> · <time datetime="{{ date | formattedDate }}">{{ date | formattedDate }}</time>
+  </header>
+  {{ content | safe }}
+</article>

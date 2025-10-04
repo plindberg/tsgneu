@@ -4,7 +4,13 @@ layout: layout.njk
 ---
 
 <div class="space-y-12">
-  {% for post in collections.posts | reverse %}
-    {% include "partials/post.njk" %}
+  {% for item in collections.chronological %}
+    {% if item.data.tags.includes('dossiers') %}
+      {% set dossier = item %}
+      {% include "partials/dossier.njk" %}
+    {% else %}
+      {% set post = item %}
+      {% include "partials/post.njk" %}
+    {% endif %}
   {% endfor %}
 </div>

@@ -12,14 +12,14 @@ eleventyAllowMissingExtension: true
     <language>en</language>
     <copyright>TSGNEU © 2025 by Peter Lindberg is licensed under CC BY 4.0</copyright>
     <atom:link href="{{ site.url }}/feed" rel="self" type="application/rss+xml" />
-    {% for post in collections.posts | reverse -%}
+    {% for item in collections.chronological -%}
     {% if loop.index <= 10 -%}
     <item>
-      <title>{{ post.data.title or "Untitled" }}</title>
-      <link>{{ site.url }}{{ post.url }}</link>
-      <guid>{{ site.url }}{{ post.url }}</guid>
-      <pubDate>{{ post.date | rssDate }}</pubDate>
-      <description><![CDATA[{{ post.content | stripClasses | absoluteLinks(site.url) | safe }}]]></description>
+      <title>{{ item.data.title or "Untitled" }}</title>
+      <link>{{ site.url }}{{ item.url }}</link>
+      <guid>{{ site.url }}{{ item.url }}#{{ item.date | formattedDate }}</guid>
+      <pubDate>{{ item.date | rssDate }}</pubDate>
+      <description><![CDATA[{{ item.content | stripClasses | absoluteLinks(site.url) | safe }}]]></description>
     </item>
     {% endif -%}
     {% endfor %}

@@ -1,0 +1,6 @@
+{
+  "permalink": "/{{ page.fileSlug }}/",
+  "layout": "dossier.njk",
+  "tags": "dossiers",
+  "date": "Last Modified"
+}
