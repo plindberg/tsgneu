@@ -1,10 +1,15 @@
 ---
 title: TSGNEU • Peter Lindberg
 layout: layout.njk
+pagination:
+  data: collections.chronological
+  size: 30
+  alias: items
+permalink: "{% if pagination.pageNumber > 0 %}/page-{{ pagination.pageNumber + 1 }}/{% else %}/{% endif %}"
 ---
 
 <div class="space-y-12">
-  {% for item in collections.chronological %}
+  {% for item in items %}
     {% if item.data.tags.includes('dossiers') %}
       {% set dossier = item %}
       {% include "partials/dossier.njk" %}
@@ -13,4 +18,16 @@ layout: layout.njk
       {% include "partials/post.njk" %}
     {% endif %}
   {% endfor %}
+
+  <nav class="text-sm/7 text-neutral-400 max-w-[26rem]">
+    {% if pagination.href.next %}
+      <a href="{{ pagination.href.next }}" class="uppercase">Older</a>
+    {% endif %}
+    {% if pagination.href.next and pagination.href.previous %}
+      <span> · </span>
+    {% endif %}
+    {% if pagination.href.previous %}
+      <a href="{{ pagination.href.previous }}" class="uppercase">Newer</a>
+    {% endif %}
+  </nav>
 </div>
