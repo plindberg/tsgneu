@@ -10,8 +10,38 @@
 {% set content = post.templateContent or content %}
 {% set lang = post.data.lang or lang %}
 {% set original = post.data.original or original %}
+{% set linkUrl = post.data.linkUrl or linkUrl %}
+{% set linkText = post.data.linkText or linkText %}
+{% set linkType = post.data.linkType or linkType %}
+{% set linkAuthor = post.data.linkAuthor or linkAuthor %}
+{% set linkWork = post.data.linkWork or linkWork %}
 
-{% if type == "quote" %}
+{% if type == "link" %}
+  <article class="space-y-4 text-lg/7"{% if lang %} lang="{{ lang }}"{% endif %}>
+    <header class="text-sm/7 text-neutral-400 mb-4 max-w-[26rem]">
+      <a href="{{ url }}">
+        {% if date %}
+          <time datetime="{{ date | formattedDate }}">{{ date | formattedDate }}</time>
+        {% else %}
+          No date
+        {% endif %}
+      </a> •
+      <span class="uppercase">{{ type }}</span> →
+      {% if linkAuthor and linkWork %}
+        {{ linkAuthor }}, <cite class="not-italic"><a href="{{ linkUrl }}" class="underline">{{ linkWork }}</a></cite>
+      {% else %}
+        <a href="{{ linkUrl }}" class="underline">{{ linkText }}</a>
+      {% endif %}
+      {% if linkType %}
+        • {{ linkType }}
+      {% endif %}
+      {% if original %}
+        • <a href="{{ original }}" class="underline">First published on {{ original | labelFromUrl }}</a>
+      {% endif %}
+    </header>
+    {{ content | safe }}
+  </article>
+{% elif type == "quote" %}
   <article{% if lang %} lang="{{ lang }}"{% endif %}>
     <header class="text-sm/7 text-neutral-400 mb-4 max-w-[26rem]">
       <a href="{{ url }}">
@@ -21,7 +51,7 @@
           No date
         {% endif %}
       </a> •
-      {{ type | capitalize }} →
+      <span class="uppercase">{{ type }}</span> →
       {% if source and sourceLabel %}
         <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceLabel }}</a></cite>
       {% elif source and sourceAuthor and sourceWork %}
