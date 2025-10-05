@@ -7,6 +7,7 @@
 {% set sourceWork = post.data.sourceWork or sourceWork %}
 {% set sourcePublication = post.data.sourcePublication or sourcePublication %}
 {% set sourceType = post.data.sourceType or sourceType %}
+{% set sourceSuffix = post.data.sourceSuffix or sourceSuffix %}
 {% set content = post.templateContent or content %}
 {% set lang = post.data.lang or lang %}
 {% set original = post.data.original or original %}
@@ -53,13 +54,13 @@
       </a> •
       <span class="uppercase">{{ type }}</span> →
       {% if source and sourceAuthor and sourceWork %}
-        {{ sourceAuthor }}, <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceWork }}</a></cite>
+        {{ sourceAuthor }}, <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceWork }}</a></cite>{% if sourceSuffix %} ({{ sourceSuffix }}){% endif %}
       {% elif source and sourceAuthor and sourcePublication %}
-        <a href="{{ source }}" class="underline">{{ sourceAuthor }} in <cite class="not-italic">{{ sourcePublication }}</cite></a>
+        <a href="{{ source }}" class="underline">{{ sourceAuthor }} in <cite class="not-italic">{{ sourcePublication }}</cite></a>{% if sourceSuffix %} ({{ sourceSuffix }}){% endif %}
       {% elif source and sourceLabel and sourcePublication %}
-        <a href="{{ source }}" class="underline">{{ sourceLabel }} in <cite class="not-italic">{{ sourcePublication }}</cite></a>
+        <a href="{{ source }}" class="underline">{{ sourceLabel }} in <cite class="not-italic">{{ sourcePublication }}</cite></a>{% if sourceSuffix %} ({{ sourceSuffix }}){% endif %}
       {% elif source and sourceLabel %}
-        <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceLabel }}</a></cite>
+        <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceLabel }}</a></cite>{% if sourceSuffix %} ({{ sourceSuffix }}){% endif %}
       {% endif %}
       • {{ sourceType | capitalize }}
       {% if original %}
