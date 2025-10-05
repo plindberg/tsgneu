@@ -52,12 +52,14 @@
         {% endif %}
       </a> •
       <span class="uppercase">{{ type }}</span> →
-      {% if source and sourceLabel %}
-        <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceLabel }}</a></cite>
-      {% elif source and sourceAuthor and sourceWork %}
+      {% if source and sourceAuthor and sourceWork %}
         {{ sourceAuthor }}, <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceWork }}</a></cite>
       {% elif source and sourceAuthor and sourcePublication %}
         <a href="{{ source }}" class="underline">{{ sourceAuthor }} in <cite class="not-italic">{{ sourcePublication }}</cite></a>
+      {% elif source and sourceLabel and sourcePublication %}
+        <a href="{{ source }}" class="underline">{{ sourceLabel }} in <cite class="not-italic">{{ sourcePublication }}</cite></a>
+      {% elif source and sourceLabel %}
+        <cite class="not-italic"><a href="{{ source }}" class="underline">{{ sourceLabel }}</a></cite>
       {% endif %}
       • {{ sourceType | capitalize }}
       {% if original %}
