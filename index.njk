@@ -21,13 +21,13 @@ permalink: "{% if pagination.pageNumber > 0 %}/page-{{ pagination.pageNumber + 1
 
   <nav class="text-sm/7 text-neutral-400 max-w-[26rem]">
     {% if pagination.href.next %}
-      <a href="{{ pagination.href.next }}" class="uppercase">Older</a>
+      <a href="{{ pagination.href.next }}" class="uppercase">← Older</a>
     {% endif %}
     {% if pagination.href.next and pagination.href.previous %}
       <span> · </span>
     {% endif %}
     {% if pagination.href.previous %}
-      <a href="{{ pagination.href.previous }}" class="uppercase">Newer</a>
+      <a href="{{ pagination.href.previous }}" class="uppercase">Newer →</a>
     {% endif %}
   </nav>
 </div>
