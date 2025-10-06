@@ -80,4 +80,9 @@ export default function (eleventyConfig) {
     const dossiers = collectionApi.getFilteredByTag("dossiers");
     return [...posts, ...dossiers].sort((a, b) => b.date - a.date);
   });
+
+  eleventyConfig.addCollection("kys", function (collectionApi) {
+    const items = collectionApi.getFilteredByTag("kys");
+    return items.sort((a, b) => a.inputPath.localeCompare(b.inputPath));
+  });
 }

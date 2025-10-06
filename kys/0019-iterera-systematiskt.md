@@ -1,0 +1,1 @@
+Iterera systematiskt enligt strategin!

@@ -1,0 +1,16 @@
+---
+layout: layout.njk
+pagination:
+  data: collections.kys
+  size: 50
+  alias: items
+permalink: "/kys/volume-{{ pagination.pageNumber + 1 }}/"
+eleventyComputed:
+  title: "Kill your snickarglädje · Volym {{ pagination.pageNumber + 1 }}"
+---
+
+<div class="space-y-6">
+  {% for item in items %}
+    {{ item.templateContent | safe }}
+  {% endfor %}
+</div>
