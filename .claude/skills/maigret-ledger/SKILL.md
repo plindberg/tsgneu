@@ -42,13 +42,12 @@ English instead; there the "Swedish" fields hold the English title and translato
    A couple of existing lines repeat the full name instead; leave them as they are rather
    than tidying up unrelated entries.
 
-5. **Bump the front-matter `date:`** to now, which resurfaces the dossier in the site's
-   chronological collection. Format is `yyyy-MM-dd HH:mm` in **Europe/Stockholm** — the
-   container clock is UTC, so get it with:
-
-   ```
-   TZ=Europe/Stockholm date "+%Y-%m-%d %H:%M"
-   ```
+5. **Bump the front-matter `date:`** to when the user finished the book — not to the
+   current time — which resurfaces the dossier in the site's chronological collection.
+   Ask if the user hasn't said when they finished it. Format is `yyyy-MM-dd HH:mm` in
+   **Europe/Stockholm**; if the user gives a date without a time, use `20:00`. Only fall
+   back to the current time (`TZ=Europe/Stockholm date "+%Y-%m-%d %H:%M"`; the container
+   clock is UTC) if the user explicitly says to use today's date.
 
 6. **Verify the build** with `npm run build`. It should complete without errors.
 
