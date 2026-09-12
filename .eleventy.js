@@ -3,6 +3,9 @@ import { DateTime } from "luxon";
 const TZ = "Europe/Stockholm";
 
 export default function (eleventyConfig) {
+  // Agent skills and config live here; they're not site content.
+  eleventyConfig.ignores.add(".claude/**");
+
   eleventyConfig.addPassthroughCopy("og-image.jpeg");
 
   eleventyConfig.addFilter("formattedDate", function (dateObj) {
